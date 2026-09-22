@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Founder Brief — Turn messy updates into decisions</title>
+<meta name="description" content="Turn a messy operational update into a concise, decision-ready founder brief, checked against the Four Cs of Communication.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="eyebrow">Day 1 Project</p>
+    <h1>Founder Brief</h1>
+    <p class="tagline">Turn messy updates into decisions.</p>
+    <p class="supporting">
+      Transform messy operational updates into clear, complete, concise and actionable
+      founder communication — a lightweight executive tool built around the Four Cs.
+    </p>
+    <ul class="cs-labels" aria-label="The Four Cs">
+      <li>Clear</li>
+      <li>Complete</li>
+      <li>Concise</li>
+      <li>Action</li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap layout">
+
+  <!-- ── Input ─────────────────────────────────────────────────────── -->
+  <section class="panel" aria-labelledby="input-heading">
+    <div class="panel-head">
+      <h2 id="input-heading">Build your update</h2>
+      <p class="hint">Paste a messy operational update. Founder Brief will analyze it using the Four Cs.</p>
+    </div>
+
+    <label class="sr-only" for="update">Messy operational update</label>
+    <textarea
+      id="update"
+      name="update"
+      rows="12"
+      maxlength="10000"
+      spellcheck="true"
+      placeholder="Example: The designer hasn't finished the landing page..."
+      aria-describedby="input-note counter"></textarea>
+
+    <div class="input-meta">
+      <span id="counter" class="counter" aria-hidden="true">0 / 10,000</span>
+    </div>
+
+    <div class="actions">
+      <button id="example" type="button" class="btn btn-ghost">Try an example</button>
+      <button id="analyze" type="button" class="btn btn-primary">Analyze with AI</button>
+    </div>
+
+    <p id="input-note" class="note">
+      Your text is sent to the configured AI provider only when you click Analyze.
+    </p>
+
+    <p id="status" class="status" role="status"></p>
+  </section>
+
+  <!-- ── Result ────────────────────────────────────────────────────── -->
+  <section class="panel panel-result" aria-labelledby="result-heading">
+    <h2 id="result-heading" class="sr-only">Analysis result</h2>
+
+    <div id="empty-state" class="empty-state">
+      <h3>Your Founder Brief</h3>
+      <p>Paste an operational update on the left. Your structured, decision-ready brief will appear here.</p>
+      <svg class="empty-mark" viewBox="0 0 120 140" aria-hidden="true" focusable="false">
+        <rect x="12" y="8" width="96" height="124" rx="10" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M28 40h64M28 60h64M28 80h40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="92" cy="102" r="13" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M86 102l4.5 4.5L99 97" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div id="result" class="result" hidden>
+      <div class="result-head">
+        <h3>Founder Brief</h3>
+      </div>
+
+      <dl id="brief-fields" class="brief"></dl>
+
+      <section class="block" aria-labelledby="check-heading">
+        <h4 id="check-heading">4C Communication Check</h4>
+        <ul id="four-cs" class="four-cs"></ul>
+      </section>
+
+      <section id="missing-wrap" class="block block-missing" aria-labelledby="missing-heading" hidden>
+        <h4 id="missing-heading">Missing Information</h4>
+        <ul id="missing"></ul>
+      </section>
+
+      <div class="result-actions">
+        <button id="copy-brief"   type="button" class="btn btn-ghost">Copy brief</button>
+        <button id="copy-slack"   type="button" class="btn btn-ghost">Copy for Slack</button>
+        <button id="copy-email"   type="button" class="btn btn-ghost">Copy for email</button>
+        <button id="reset"        type="button" class="btn btn-quiet">Reset</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-title">Founder Brief</p>
+    <p class="footer-cs">Clear &bull; Complete &bull; Concise &bull; Call to Action</p>
+    <p class="footer-note">Independent Day 1 project inspired by the Pareto Talent Bootcamp. Not an official Pareto Talent product, and not affiliated with or endorsed by Pareto Talent.</p>
+  </div>
+</footer>
+
+<p id="toast" class="toast" role="status" hidden></p>
+
+<!-- ──────────────────────────────────────────────────────────────────
+     API endpoint configuration.
+
+     Leave this empty when the frontend and the API are served from the
+     same origin (Vercel, or `vercel dev` locally) — requests then go to
+     /api/analyze on the current host.
+
+     When the frontend is hosted separately, e.g. on GitHub Pages, set the
+     full URL of the deployed function:
+
+       window.FOUNDER_BRIEF_API_URL = "https://your-project.vercel.app/api/analyze";
+──────────────────────────────────────────────────────────────────── -->
+<script>window.FOUNDER_BRIEF_API_URL = "";</script>
+<script src="script.js"></script>
+
+</body>
+</html>
