@@ -1,0 +1,886 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..900&family=Newsreader:ital,opsz,wght@1,6..72,400..500&display=swap" rel="stylesheet">
+<style>
+/* Right Hand Program — concept landing page. Every selector is scoped under #rh for GoHighLevel. */
+#rh{--mid:#070C1A;--mid2:#0C1428;--mid3:#111B35;--navy:#16295F;--navy-d:#0A1122;--por:#EDEFF3;--por2:#E3E7EE;--card:#F8F9FB;--ink:#0B1020;--ink2:#343C50;--mute:#586177;--sil:#C3C9D5;--sil2:#8F98AC;--hi:#F4F6FA;--line-d:rgba(255,255,255,.09);--line-l:#D3D8E2;--ember:#E0512B;--ember-l:#FF6B3F;--gold:#E9A23B;--ok:#2FA37A;
+  --fd:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--fs:'Newsreader',Georgia,'Times New Roman',serif;
+  --ease:cubic-bezier(.16,1,.3,1);--tact:cubic-bezier(.25,1,.5,1);
+  font-family:var(--fd);font-size:17px;line-height:1.6;color:var(--sil);background:var(--mid);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-align:left;overflow-x:clip;position:relative}
+#rh *,#rh *::before,#rh *::after{box-sizing:border-box;margin:0;padding:0}
+#rh img{display:block;max-width:100%}
+#rh a{color:inherit}
+#rh b,#rh strong{font-weight:700}
+#rh .wrap{width:100%;max-width:1240px;margin:0 auto;padding-inline:clamp(20px,4vw,40px)}
+#rh .ico{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#rh .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#rh a:focus-visible,#rh button:focus-visible,#rh summary:focus-visible,#rh input:focus-visible{outline:3px solid var(--ember-l);outline-offset:3px}
+
+/* type */
+#rh h1,#rh h2,#rh h3{font-family:var(--fd);color:var(--hi);font-weight:800;letter-spacing:-.035em;line-height:1;text-wrap:balance}
+#rh h2{font-size:clamp(32px,4vw,56px);max-width:18ch}
+#rh h2 .b{display:block;background:linear-gradient(180deg,#FFFFFF 0%,#8E97AD 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+#rh h3{font-size:22px;letter-spacing:-.015em;line-height:1.2;font-weight:700}
+#rh p{text-wrap:pretty}
+#rh .lede{font-size:clamp(17px,1.45vw,20px);line-height:1.6;max-width:56ch;color:var(--sil)}
+#rh .eb{display:inline-flex;align-items:center;gap:12px;font-size:15px;font-weight:600;color:var(--sil2);letter-spacing:.005em;margin-bottom:22px}
+#rh .eb::before{content:"";width:26px;height:4px;border-radius:2px;flex:none;background:linear-gradient(90deg,var(--eb-a,#DDE2EB) 0 72%,transparent 72% 80%,var(--ember) 80%)}
+#rh .num{font-stretch:125%;font-weight:800;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+#rh .quote-s{font-family:var(--fs);font-style:italic;font-weight:400}
+
+/* sections */
+#rh section{position:relative;padding-block:clamp(88px,10vw,144px)}
+#rh .s-light{background:var(--por);color:var(--ink2);--eb-a:#0B1020}
+#rh .s-light h1,#rh .s-light h2,#rh .s-light h3{color:var(--ink)}
+#rh .s-light h2 .b{background:linear-gradient(180deg,#39425A 0%,#6A738A 100%);-webkit-background-clip:text;background-clip:text}
+#rh .s-light .eb{color:var(--mute)}
+#rh .s-light .lede{color:var(--ink2)}
+
+/* stage atmosphere: grid + grain */
+#rh .grid-bg{position:absolute;inset:0;pointer-events:none;background-size:64px 64px;background-image:linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 0%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 0%,transparent 75%)}
+#rh .grain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* tactile buttons */
+#rh .btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:58px;padding:0 12px 0 26px;border-radius:18px;font-family:var(--fd);font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none;cursor:pointer;border:0;transition:transform .4s var(--tact),box-shadow .4s var(--tact),background .4s var(--tact);will-change:transform}
+#rh .btn .bi{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--ember);color:#fff;box-shadow:inset 0 1px 1px rgba(255,255,255,.35),inset 0 -2px 3px rgba(0,0,0,.25)}
+#rh .btn .bi .ico{width:18px;height:18px;transition:transform .4s var(--tact)}
+#rh .btn:hover .bi .ico{transform:translateX(3px)}
+#rh .btn-l{background:linear-gradient(180deg,#FFFFFF 0%,#E7EAF1 100%);color:var(--ink);box-shadow:0 0 0 1px rgba(0,0,0,.05),0 2px 4px rgba(0,0,0,.18),0 14px 28px -6px rgba(0,0,0,.55),inset 0 1px 1px #fff,inset 0 -3px 6px rgba(11,16,32,.08)}
+#rh .btn-l:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(0,0,0,.05),0 8px 14px -2px rgba(0,0,0,.25),0 24px 40px -8px rgba(0,0,0,.6),inset 0 1px 1px #fff,inset 0 -3px 6px rgba(11,16,32,.08)}
+#rh .btn-l:active{transform:translateY(1px);background:linear-gradient(180deg,#E7EAF1 0%,#DADFE8 100%);box-shadow:0 0 0 1px rgba(0,0,0,.1),inset 0 3px 6px rgba(0,0,0,.12)}
+#rh .btn-d{background:linear-gradient(180deg,#1E2847 0%,#0B1020 100%);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 2px 4px rgba(0,0,0,.3),0 14px 28px -8px rgba(11,16,32,.55),inset 0 1px 1px rgba(255,255,255,.14),inset 0 -3px 6px rgba(0,0,0,.6)}
+#rh .btn-d:hover{transform:translateY(-3px)}
+#rh .btn-d:active{transform:translateY(1px)}
+#rh .ghost{display:inline-flex;align-items:center;gap:8px;min-height:44px;font-weight:600;text-decoration:none;color:var(--hi);border-bottom:1px solid rgba(255,255,255,.25);transition:border-color .3s}
+#rh .ghost:hover{border-color:var(--ember-l)}
+#rh .ghost .ico{width:17px;height:17px}
+
+/* physical depth card (from the cinematic hero reference) */
+#rh .pc{position:relative;background:linear-gradient(145deg,var(--navy) 0%,var(--navy-d) 100%);border:1px solid rgba(255,255,255,.05);box-shadow:0 40px 100px -20px rgba(0,0,0,.85),0 20px 40px -20px rgba(0,0,0,.7),inset 0 1px 2px rgba(255,255,255,.2),inset 0 -2px 4px rgba(0,0,0,.7)}
+#rh .pc::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(700px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.07) 0%,transparent 42%);mix-blend-mode:screen}
+
+/* ribbon + nav */
+#rh .ribbon{background:#03060E;color:var(--sil2);font-size:12.5px;line-height:1.5;text-align:center;padding:9px 16px;position:relative;z-index:41}
+#rh .ribbon b{color:var(--hi);font-weight:600}
+#rh .nav{position:sticky;top:0;z-index:40;transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+#rh .nav.is-stuck{background:rgba(7,12,26,.97);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);box-shadow:0 1px 0 var(--line-d)}
+#rh .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+#rh .logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-height:44px}
+#rh .logo svg{width:36px;height:36px;flex:none}
+#rh .logo .wm{display:flex;flex-direction:column;line-height:1}
+#rh .logo .wm b{font-stretch:112%;font-weight:800;font-size:19px;letter-spacing:-.03em;color:var(--hi)}
+#rh .logo .wm small{font-size:11.5px;font-weight:500;color:var(--sil2);margin-top:5px;letter-spacing:.01em}
+#rh .nav .btn{min-height:48px;font-size:15px;padding:0 8px 0 18px;border-radius:14px;gap:10px}
+#rh .nav .btn .bi{width:30px;height:30px;border-radius:10px}
+#rh .prog{position:fixed;left:0;top:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--ember),var(--ember-l));z-index:60;pointer-events:none}
+
+/* 1 hero */
+#rh .hero{position:relative;overflow:hidden;padding-block:clamp(24px,4vw,56px) clamp(80px,9vw,128px)}
+#rh .hero .glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(640px circle at var(--gx,70%) var(--gy,30%),rgba(66,98,190,.22),transparent 60%),radial-gradient(900px 500px at 85% 0%,rgba(22,41,95,.55),transparent 70%)}
+#rh .hero-grid{position:relative;display:grid;grid-template-columns:1.38fr .62fr;gap:clamp(36px,5vw,80px);align-items:center}
+#rh .hero-copy{will-change:transform}
+#rh .hero h1{font-size:clamp(40px,4.7vw,68px);line-height:.98;letter-spacing:-.04em;max-width:17ch;margin-bottom:26px}
+#rh .hero h1 .l1{display:block}
+#rh .hero h1 .w{display:inline-block;transform-origin:50% 100%;animation:rh-rise 1.1s var(--ease) both;animation-delay:calc(.15s + var(--i) * 55ms)}
+#rh .hero h1 .l2{display:block;margin-top:.06em;background:linear-gradient(180deg,#FFFFFF 0%,#8E97AD 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.1em;animation:rh-wipe 1.4s cubic-bezier(.77,0,.18,1) .85s both}
+#rh .hero h1 .hl{background-image:linear-gradient(var(--ember),var(--ember));background-repeat:no-repeat;background-position:0 94%;background-size:100% .085em;-webkit-box-decoration-break:clone;box-decoration-break:clone;animation:rh-under 1s var(--ease) 1.2s both}
+#rh .hero .lede{margin-bottom:34px}
+#rh .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px}
+#rh .trust{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;margin-top:34px;font-size:14.5px;color:var(--sil2)}
+#rh .faces{display:flex}
+#rh .faces img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--mid);margin-left:-10px;background:var(--mid3);color:transparent}
+#rh .faces img:first-child{margin-left:0}
+#rh .stars{display:flex;gap:2px;color:var(--gold)}
+#rh .stars svg{width:16px;height:16px;fill:currentColor;stroke:none}
+#rh .trust b{color:var(--hi)}
+#rh .hero-visual{position:relative;justify-self:end;width:100%;max-width:400px;perspective:1200px;animation:rh-card 1.5s var(--ease) .35s backwards}
+#rh .hero .pc{border-radius:30px;padding:10px;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transform-style:preserve-3d;transition:transform .9s var(--ease)}
+#rh .frame{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,#24376E,#0A1122)}
+#rh .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;color:transparent}
+#rh .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(7,12,26,.78) 100%);pointer-events:none}
+#rh .cap{position:absolute;left:24px;right:24px;bottom:24px;z-index:2;color:#fff;font-size:14px;line-height:1.4;padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 20px 40px -12px rgba(0,0,0,.7),inset 0 1px 1px rgba(255,255,255,.2)}
+#rh .cap b{display:block;font-size:14.5px;margin-bottom:3px}
+#rh .cap span{font-family:var(--fs);font-style:italic;font-size:15.5px;color:#E3E7EF}
+#rh .seal{position:absolute;right:-30px;top:-34px;width:150px;height:150px;z-index:3;filter:drop-shadow(0 18px 30px rgba(0,0,0,.55))}
+#rh .seal text{font-family:var(--fd);font-stretch:125%}
+#rh .seal .spin{transform-origin:80px 80px;animation:rh-spin 36s linear infinite}
+
+/* 2 proof */
+#rh .proof{background:var(--mid2);padding-block:clamp(56px,6vw,80px);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+#rh .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+#rh .stat{padding-left:20px;border-left:1px solid var(--line-d)}
+#rh .stat b{display:block;font-size:clamp(34px,4.2vw,58px);line-height:1;color:var(--hi)}
+#rh .stat span{display:block;margin-top:12px;font-size:15px;color:var(--sil2);max-width:18ch}
+#rh .marks{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 34px;margin-top:48px;padding-top:30px;border-top:1px solid var(--line-d);font-size:14.5px;color:var(--sil2)}
+#rh .marks strong{font-family:var(--fs);font-style:italic;font-weight:400;font-size:clamp(19px,1.8vw,24px);color:#DCE1EA;letter-spacing:-.005em}
+
+/* 3 problem */
+#rh .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,96px);align-items:center}
+#rh .problem .lede{margin-top:30px}
+#rh .problem .lede+.lede{margin-top:16px}
+#rh .pull{margin-top:36px;padding-left:22px;border-left:3px solid var(--ember)}
+#rh .pull q{display:block;font-family:var(--fs);font-style:italic;font-size:clamp(20px,1.8vw,24px);line-height:1.38;color:var(--ink);quotes:"\201C" "\201D"}
+#rh .pull cite{display:block;margin-top:10px;font-style:normal;font-size:14px;color:var(--mute)}
+#rh .diag{background:var(--card);border:1px solid var(--line-l);border-radius:28px;padding:clamp(18px,2.4vw,28px);box-shadow:0 30px 60px -40px rgba(11,16,32,.35)}
+#rh .diag .legend{display:flex;justify-content:space-between;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px;padding-inline:4px}
+#rh .diag .legend span+span{color:var(--navy)}
+#rh .diag svg{width:100%;height:auto;overflow:visible}
+#rh .diag text{font-family:var(--fd);font-weight:800;font-size:12px;letter-spacing:.02em}
+#rh .diag figcaption{margin-top:12px;font-size:14.5px;color:var(--mute);line-height:1.5}
+
+/* 4 math */
+#rh .math{overflow:hidden}
+#rh .wall{position:relative;margin-top:clamp(48px,6vw,72px);height:clamp(460px,54vw,760px);overflow:hidden;perspective:1100px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+#rh .wall-in{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;transform-origin:50% 0;transform:rotateX(var(--wrx,0deg)) rotateZ(var(--wrz,0deg)) translateY(var(--wty,0px));will-change:transform}
+#rh .row{display:flex;gap:22px;width:max-content;transform:translate3d(var(--tx,-500px),0,0);will-change:transform}
+#rh .tile{position:relative;flex:none;width:clamp(230px,26vw,360px);aspect-ratio:16/10;border-radius:20px;overflow:hidden;background:linear-gradient(145deg,var(--navy),var(--navy-d));box-shadow:0 24px 50px -24px rgba(0,0,0,.8),inset 0 1px 1px rgba(255,255,255,.12)}
+#rh .tile img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35) contrast(1.06) brightness(.78);color:transparent}
+#rh .tile::before{content:"";position:absolute;left:18px;top:16px;width:44px;height:4px;border-radius:2px;z-index:2;background:linear-gradient(90deg,#fff 0 72%,transparent 72% 80%,var(--ember) 80%)}
+#rh .tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,17,34,.1) 30%,rgba(10,17,34,.85) 100%)}
+#rh .tile span{position:absolute;left:16px;bottom:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 13px 8px 10px;border-radius:12px;font-weight:700;font-size:15px;color:#fff;background:rgba(10,17,34,.62);box-shadow:0 0 0 1px rgba(255,255,255,.16)}
+#rh .tile span .ico{width:17px;height:17px;color:var(--ember-l)}
+#rh .tile.is-broken img{visibility:hidden}
+#rh .calc{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(40px,6vw,88px);align-items:center;margin-top:clamp(56px,7vw,96px)}
+#rh .benefits{list-style:none;display:grid;gap:20px}
+#rh .benefits li{display:flex;gap:16px;align-items:flex-start;font-size:18px;line-height:1.5;color:#DCE1EA}
+#rh .benefits .ck{width:32px;height:32px;border-radius:10px;flex:none;display:grid;place-items:center;color:var(--ember-l);box-shadow:inset 0 0 0 1px rgba(255,107,63,.45);margin-top:-2px}
+#rh .benefits .ck .ico{width:17px;height:17px}
+#rh .inst-stage{perspective:1400px}
+#rh .inst{border-radius:34px;padding:clamp(26px,3.6vw,44px);color:#fff;transform-origin:50% 100%;will-change:transform}
+#rh .inst label{display:block;font-weight:600;font-size:16px;color:#D7DDE8}
+#rh .inst-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:14px 0 22px}
+#rh .rate{font-size:clamp(46px,6vw,78px);line-height:1;color:#fff;white-space:nowrap}
+#rh .rate small{font-size:.28em;font-stretch:100%;font-weight:600;letter-spacing:0;color:#A7B0C4;margin-left:6px}
+#rh .ring{position:relative;width:128px;height:128px;flex:none}
+#rh .ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+#rh .ring .arc{transition:stroke-dashoffset .5s var(--ease)}
+#rh .ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:26px;color:#fff}
+#rh .slider{position:relative;height:44px;display:flex;align-items:center}
+#rh input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;touch-action:manipulation}
+#rh input[type=range]::-webkit-slider-runnable-track{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--ember) 0,var(--ember-l) var(--p,21%),rgba(255,255,255,.1) var(--p,21%));box-shadow:inset 0 1px 3px rgba(0,0,0,.6)}
+#rh input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;margin-top:-11px;border-radius:50%;background:linear-gradient(180deg,#fff,#DDE2EB);box-shadow:0 0 0 5px rgba(255,107,63,.9),0 6px 14px rgba(0,0,0,.6),inset 0 -3px 5px rgba(0,0,0,.12);transition:transform .3s var(--tact)}
+#rh input[type=range]:active::-webkit-slider-thumb{transform:scale(1.08)}
+#rh input[type=range]::-moz-range-track{height:10px;border-radius:99px;background:rgba(255,255,255,.1)}
+#rh input[type=range]::-moz-range-progress{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--ember),var(--ember-l))}
+#rh input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:50%;background:linear-gradient(180deg,#fff,#DDE2EB);box-shadow:0 0 0 5px rgba(255,107,63,.9),0 6px 14px rgba(0,0,0,.6)}
+#rh .scale{display:flex;justify-content:space-between;font-size:13px;color:#A7B0C4;margin-top:2px}
+#rh .out{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}
+#rh .out div{border-radius:18px;padding:16px 18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:0 10px 20px rgba(0,0,0,.25),inset 0 1px 1px rgba(255,255,255,.06),inset 0 -1px 1px rgba(0,0,0,.5)}
+#rh .out span{display:block;font-size:13.5px;font-weight:600;color:#A7B0C4}
+#rh .out b{display:block;margin-top:6px;font-size:clamp(24px,2.6vw,32px);color:#fff}
+#rh .verdict{margin-top:20px;font-size:16px;line-height:1.5;color:#E3E7EF;min-height:48px}
+#rh .verdict b{color:var(--gold)}
+#rh .wait{margin-top:16px;padding:12px 14px 12px 16px;border-radius:14px;font-size:15px;line-height:1.45;color:#E3E7EF;background:rgba(224,81,43,.08);box-shadow:inset 3px 0 0 var(--ember)}
+#rh .wait b{color:#fff;font-variant-numeric:tabular-nums}
+#rh .wait[hidden]{display:none}
+#rh .fine{margin-top:14px;font-size:12.5px;line-height:1.5;color:#A2ABBF}
+
+/* 5 how */
+#rh .rail{position:relative;height:2px;margin-top:clamp(56px,6vw,80px);background:var(--line-l)}
+#rh .rail i{position:absolute;inset:0;transform-origin:0 50%;transform:scaleX(var(--t,1));background:linear-gradient(90deg,var(--ember),var(--ember-l))}
+#rh .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+#rh .step{position:relative;padding-top:34px}
+#rh .step::before{content:"";position:absolute;left:0;top:-7px;width:14px;height:14px;border-radius:50%;background:var(--por);box-shadow:inset 0 0 0 2px #A9B1C2;transition:box-shadow .5s,background .5s}
+#rh .step.on::before{background:var(--ember);box-shadow:0 0 0 5px rgba(224,81,43,.18)}
+#rh .step .n{display:block;font-size:clamp(64px,7vw,104px);line-height:.9;color:transparent;-webkit-text-stroke:1.5px #9AA3B6;transition:-webkit-text-stroke-color .6s}
+#rh .step.on .n{-webkit-text-stroke-color:var(--ember)}
+#rh .step h3{margin:18px 0 10px}
+#rh .step p{font-size:16.5px;color:var(--ink2);max-width:30ch}
+#rh .chip{display:inline-block;margin-top:16px;font-size:13.5px;font-weight:600;color:var(--ink);padding:6px 12px;border-radius:99px;background:#fff;box-shadow:0 0 0 1px var(--line-l)}
+
+/* 6 ivan */
+#rh .ivan{overflow:hidden}
+#rh .ivan .two{align-items:start}
+#rh .ivan .lede{margin-top:30px}
+#rh .tl{list-style:none;position:relative;margin-top:40px;padding-left:34px;display:grid;gap:26px}
+#rh .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:rgba(255,255,255,.1)}
+#rh .tl::after{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;transform-origin:50% 0;transform:scaleY(var(--t,1));background:linear-gradient(180deg,var(--ember-l),var(--ember))}
+#rh .tl li{position:relative}
+#rh .tl li::before{content:"";position:absolute;left:-34px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--mid);box-shadow:inset 0 0 0 2px #4A5470;transition:background .5s,box-shadow .5s}
+#rh .tl li.on::before{background:var(--ember);box-shadow:0 0 0 6px rgba(224,81,43,.2)}
+#rh .tl b{display:block;font-size:14px;letter-spacing:.02em;color:var(--sil2);transition:color .5s}
+#rh .tl li.on b{color:var(--ember-l)}
+#rh .tl span{display:block;margin-top:4px;color:#DCE1EA;font-size:16.5px}
+#rh .punch{margin-top:44px;font-size:clamp(24px,2.6vw,34px);font-weight:700;letter-spacing:-.025em;line-height:1.2;color:var(--hi);max-width:22ch}
+#rh .ceil{position:relative;display:inline-block}
+#rh .ceil::before{content:"";position:absolute;left:0;right:0;top:-.14em;height:3px;border-radius:2px;background:var(--ember)}
+#rh .duo{position:relative;border-radius:32px;padding:10px;max-width:470px;margin-left:auto}
+#rh .duo .frame{aspect-ratio:4/5;border-radius:24px}
+#rh .duo .frame img{object-position:50% 8%;transform:translateY(var(--py,0%)) scale(1.12);will-change:transform}
+#rh .duo figcaption{margin-top:14px;font-size:13.5px;color:var(--sil2);padding-inline:6px}
+
+/* 7 offer */
+#rh .offer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,3vw,40px);margin-top:clamp(48px,6vw,72px);align-items:start}
+#rh .stack{list-style:none;background:#fff;border-radius:28px;box-shadow:0 0 0 1px var(--line-l),0 30px 60px -40px rgba(11,16,32,.3)}
+#rh .stack li{display:flex;gap:18px;padding:22px clamp(18px,2.4vw,28px);border-bottom:1px solid #E6E9EF;align-items:flex-start}
+#rh .stack li:last-child{border-bottom:0}
+#rh .stack .i{width:44px;height:44px;border-radius:13px;flex:none;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,var(--navy),var(--navy-d));box-shadow:inset 0 1px 1px rgba(255,255,255,.2),0 6px 14px -6px rgba(11,16,32,.6)}
+#rh .stack .i .ico{width:20px;height:20px}
+#rh .stack b{display:block;font-size:17.5px;color:var(--ink);letter-spacing:-.01em}
+#rh .stack span{display:block;margin-top:3px;font-size:15.5px;color:var(--mute)}
+#rh .stack .testi{margin-top:12px;font-family:var(--fs);font-style:italic;font-size:17px;line-height:1.45;color:var(--ink2)}
+#rh .stack a{text-decoration-color:rgba(11,16,32,.3);text-underline-offset:3px}
+#rh .price{border-radius:30px;padding:clamp(26px,3vw,36px);color:#fff;position:sticky;top:96px}
+#rh .price .k{font-size:14px;font-weight:600;color:var(--gold)}
+#rh .price .big{margin:14px 0 6px;font-size:clamp(52px,5.4vw,72px);line-height:1;color:#fff}
+#rh .price .big small{font-size:.26em;font-stretch:100%;font-weight:600;letter-spacing:0;color:#A7B0C4;white-space:nowrap}
+#rh .price p{font-size:15px;color:#B9C0CF}
+#rh .plans{margin:24px 0;border-top:1px solid var(--line-d)}
+#rh .plans div{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line-d);font-size:15.5px;color:#D7DDE8}
+#rh .plans div span:last-child{font-weight:700;color:#fff;font-variant-numeric:tabular-nums}
+#rh .price .btn{width:100%}
+#rh .price .note{margin-top:14px;text-align:center;font-size:13.5px}
+
+/* 8 guarantees */
+#rh .gcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:clamp(48px,6vw,72px)}
+#rh .gcard{position:relative;border-radius:28px;padding:clamp(26px,3vw,36px);background:linear-gradient(180deg,var(--mid3),var(--mid2));box-shadow:0 0 0 1px var(--line-d),inset 0 1px 1px rgba(255,255,255,.06)}
+#rh .gcard .i{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:var(--ember-l);box-shadow:inset 0 0 0 1px rgba(255,107,63,.4);background:rgba(224,81,43,.06)}
+#rh .gcard .i .ico{width:26px;height:26px}
+#rh .gcard h3{margin-top:24px}
+#rh .gcard .sub{margin-top:6px;font-size:14.5px;font-weight:600;color:var(--ember-l)}
+#rh .gcard p{margin-top:16px;font-size:16px;line-height:1.6;color:#C9CFDB}
+#rh .gcard.hl{background:linear-gradient(160deg,#1B2E66 0%,#0C1428 70%);box-shadow:0 0 0 1px rgba(255,107,63,.55),0 30px 60px -30px rgba(224,81,43,.5),inset 0 1px 1px rgba(255,255,255,.12)}
+#rh .gcard.hl .i{background:var(--ember);color:#fff;box-shadow:inset 0 1px 1px rgba(255,255,255,.35),0 10px 24px -8px rgba(224,81,43,.8)}
+
+/* 9 faq */
+#rh .faq .two{align-items:start;grid-template-columns:.8fr 1.2fr}
+#rh details{border-bottom:1px solid var(--line-l)}
+#rh details:first-of-type{border-top:1px solid var(--line-l)}
+#rh summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;min-height:44px;padding:24px 0;font-size:19px;font-weight:700;letter-spacing:-.015em;color:var(--ink)}
+#rh summary::-webkit-details-marker{display:none}
+#rh summary .pm{width:34px;height:34px;flex:none;border-radius:11px;display:grid;place-items:center;background:#fff;box-shadow:0 0 0 1px var(--line-l);color:var(--ember);transition:transform .4s var(--tact),background .3s}
+#rh details[open] summary .pm{transform:rotate(45deg);background:var(--ink);color:#fff}
+#rh details p{padding:0 0 26px;font-size:16.5px;color:var(--ink2);max-width:60ch}
+
+/* 10 final */
+#rh .final{overflow:hidden;padding-block:clamp(72px,8vw,120px)}
+#rh .fcard{position:relative;overflow:hidden;border-radius:var(--fr,40px);padding:clamp(56px,8vw,112px) clamp(22px,5vw,64px);text-align:center;transform:scale(var(--fsc,1));transform-origin:50% 60%;will-change:transform}
+#rh .fcard h2{margin:0 auto;max-width:17ch;font-size:clamp(38px,5.4vw,78px);background:linear-gradient(180deg,#FFFFFF 0%,#96A0B6 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.08em}
+#rh .fcard .lede{margin:24px auto 0;color:#D0D6E2;text-wrap:balance}
+#rh .fcard .btn{margin-top:40px}
+#rh .fcard .mini{margin-top:22px;font-size:14px;color:#A7B0C4}
+
+/* 11 footer */
+#rh .foot{background:#03060E;color:var(--sil2);font-size:13.5px;line-height:1.6;padding:40px 0}
+#rh .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
+#rh .foot b{color:var(--hi);font-weight:600}
+#rh .foot span{max-width:70ch}
+
+/* sticky mobile bar */
+#rh .mbar{display:none}
+
+/* motion */
+@keyframes rh-rise{from{opacity:0;transform:perspective(600px) translateY(55%) rotateX(-40deg);filter:blur(10px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes rh-wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes rh-under{from{background-size:0% .085em}to{background-size:100% .085em}}
+@keyframes rh-card{from{opacity:0;transform:translateY(90px) rotateX(16deg) scale(.94)}to{opacity:1;transform:none}}
+@keyframes rh-spin{to{transform:rotate(360deg)}}
+
+@media (max-width:1024px){
+  #rh .hero h1{font-size:clamp(38px,5.4vw,56px)}
+  #rh .seal{right:-12px;top:-30px;width:128px;height:128px}
+}
+@media (max-width:900px){
+  #rh .hero-grid,#rh .two,#rh .faq .two,#rh .calc,#rh .offer-grid{grid-template-columns:1fr}
+  #rh .hero-visual{justify-self:center;max-width:400px;margin-top:12px}
+  #rh .stats{grid-template-columns:1fr 1fr;gap:36px 20px}
+  #rh .steps,#rh .gcards{grid-template-columns:1fr}
+  #rh .steps{gap:44px}
+  #rh .rail{display:none}
+  #rh .step{padding-top:0;padding-left:30px;border-left:2px solid var(--line-l)}
+  #rh .step::before{left:-8px;top:10px}
+  #rh .price{position:relative;top:auto}
+  #rh .duo{margin:8px auto 0}
+  #rh .diag{max-width:620px}
+}
+@media (max-width:640px){
+  #rh{font-size:16px}
+  #rh .nav .btn{display:none}
+  #rh .nav .wrap{min-height:64px}
+  #rh .hero h1{font-size:clamp(36px,10.4vw,52px)}
+  #rh .cta-row .btn{width:100%;justify-content:space-between}
+  #rh .seal{right:-6px;top:-26px;width:108px;height:108px}
+  #rh .cap{left:14px;right:14px;bottom:14px}
+  #rh .inst-top{gap:12px}
+  #rh .rate{font-size:clamp(36px,10.5vw,46px)}
+  #rh .rate small{display:block;margin:10px 0 0}
+  #rh .ring{width:84px;height:84px}
+  #rh .ring b{font-size:19px}
+  #rh .out b{font-size:24px}
+  #rh .wall{height:clamp(340px,92vw,440px)}
+  #rh .row:nth-child(3){display:none}
+  #rh .tile{width:220px}
+  #rh .fcard .btn{width:100%;justify-content:space-between}
+  #rh .mbar{display:block;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:50;transform:translateY(160%);transition:transform .45s var(--ease)}
+  #rh .mbar.on{transform:none}
+  #rh .mbar .btn{width:100%;justify-content:space-between;min-height:56px;font-size:15px;padding-left:20px;text-align:left}
+  #rh .foot{padding-bottom:104px}
+}
+@media (max-width:420px){
+  #rh .out{grid-template-columns:1fr}
+}
+@media (max-width:380px){
+  #rh .stats{grid-template-columns:1fr}
+  #rh .ring{width:72px;height:72px}
+  #rh .ring b{font-size:17px}
+}
+@media (prefers-reduced-motion:reduce){
+  #rh .hero h1 .w,#rh .hero h1 .l2,#rh .hero h1 .hl,#rh .hero-visual,#rh .seal .spin{animation:none}
+  #rh .btn,#rh .btn .ico,#rh .mbar,#rh .ring .arc,#rh .hero .pc{transition:none}
+  #rh .btn:hover,#rh .btn-d:hover{transform:none}
+  #rh .dot{display:none}
+}
+</style>
+
+<div id="rh">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <!-- Icons: Lucide v1.48.0 (ISC license) -->
+  <symbol id="rh-i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="rh-i-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
+  <symbol id="rh-i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="rh-i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+  <symbol id="rh-i-usercheck" viewBox="0 0 24 24"><path d="m16 11 2 2 4-4"/><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></symbol>
+  <symbol id="rh-i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></symbol>
+  <symbol id="rh-i-calendar" viewBox="0 0 24 24"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></symbol>
+  <symbol id="rh-i-zap" viewBox="0 0 24 24"><path d="M15.914 4a1.5 1.5 0 00-2.474-1.561l-9 9A1.5 1.5 0 005.5 14h4.002a.5.5 0 01.471.666L8.086 20a1.5 1.5 0 002.475 1.56l9-9A1.5 1.5 0 0018.5 10h-3.997a.5.5 0 01-.472-.667z"/></symbol>
+  <symbol id="rh-i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z"/><path d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12"/><path d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17"/></symbol>
+  <symbol id="rh-i-buoy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></symbol>
+  <symbol id="rh-i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="rh-i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+  <symbol id="rh-i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="rh-i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="rh-i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol>
+  <symbol id="rh-i-list" viewBox="0 0 24 24"><path d="M13 5h8"/><path d="M13 12h8"/><path d="M13 19h8"/><path d="m3 17 2 2 4-4"/><path d="m3 7 2 2 4-4"/></symbol>
+  <symbol id="rh-i-ops" viewBox="0 0 24 24"><path d="M14 17H5"/><path d="M19 7h-9"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></symbol>
+  <symbol id="rh-mark" viewBox="0 0 36 36"><defs><linearGradient id="rh-mk" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1D3478"/><stop offset="1" stop-color="#0A1122"/></linearGradient></defs><rect width="36" height="36" rx="10" fill="url(#rh-mk)"/><rect x=".5" y=".5" width="35" height="35" rx="9.5" fill="none" stroke="#fff" stroke-opacity=".14"/><rect x="7" y="8" width="16" height="20" rx="2.6" fill="#E9ECF2"/><rect x="25" y="8" width="4" height="20" rx="2" fill="#E0512B"/></symbol>
+</svg>
+
+<div class="prog" id="rh-prog" aria-hidden="true"></div>
+
+<div class="ribbon">Concept landing page · <b>Pareto Talent Bootcamp, Day 5</b> homework by Hakim Boukeffoussa · not an official Pareto page</div>
+
+<nav class="nav" id="rh-nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#rh-top" aria-label="Right Hand by Pareto Talent">
+      <svg aria-hidden="true"><use href="#rh-mark"/></svg>
+      <span class="wm"><b>Right Hand</b><small>by Pareto Talent</small></span>
+    </a>
+    <a class="btn btn-l" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get matched free <span class="bi"><svg class="ico" aria-hidden="true"><use href="#rh-i-arrow"/></svg></span></a>
+  </div>
+</nav>
+
+<!-- 1 HERO -->
+<header class="hero" id="rh-top">
+  <div class="glow" id="rh-glow" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy" id="rh-hcopy">
+      <p class="eb">For founders doing $100K+ a month</p>
+      <h1><span class="l1"><span class="w" style="--i:0">Get</span> <span class="hl"><span class="w" style="--i:1">40</span> <span class="w" style="--i:2">hours</span> <span class="w" style="--i:3">back</span></span> <span class="w" style="--i:4">in</span> <span class="w" style="--i:5">your</span> <span class="w" style="--i:6">first</span> <span class="w" style="--i:7">30</span> <span class="w" style="--i:8">days</span> <span class="w" style="--i:9">—</span></span> <span class="l2">or your next month is free.</span></h1>
+      <p class="lede">A full-time Right Hand, picked from 1,000+ applicants, who runs your day on AI. Two quick questions today, three hand-picked profiles within 24 hours — and no contract until you find your person.</p>
+      <div class="cta-row">
+        <a class="btn btn-l" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get matched free <span class="bi"><svg class="ico" aria-hidden="true"><use href="#rh-i-arrow"/></svg></span></a>
+        <a class="ghost" href="#rh-math">What’s my hour worth? <svg class="ico" aria-hidden="true"><use href="#rh-i-down"/></svg></a>
+      </div>
+      <div class="trust">
+        <div class="faces">
+          <img src="https://paretotalent.com/img/justin-donald.png" alt="Justin Donald" width="36" height="36" decoding="async">
+          <img src="https://paretotalent.com/img/joe-polish.png" alt="Joe Polish" width="36" height="36" decoding="async">
+          <img src="https://paretotalent.com/img/john-roman.png" alt="Jon Vroman" width="36" height="36" decoding="async">
+        </div>
+        <div class="stars" role="img" aria-label="Rated 4.9 out of 5"><svg aria-hidden="true"><use href="#rh-i-star"/></svg><svg aria-hidden="true"><use href="#rh-i-star"/></svg><svg aria-hidden="true"><use href="#rh-i-star"/></svg><svg aria-hidden="true"><use href="#rh-i-star"/></svg><svg aria-hidden="true"><use href="#rh-i-star"/></svg></div>
+        <span><b>4.9</b> · trusted by 100+ founders</span>
+      </div>
+    </div>
+    <div class="hero-visual" id="rh-hvis">
+      <figure class="pc" id="rh-hcard">
+        <div class="frame">
+          <img src="https://paretotalent.com/img/kasim-headshot.jpg" alt="Kasim Aslam, co-founder of Pareto Talent" width="450" height="562" fetchpriority="high" decoding="async">
+          <div class="grain" aria-hidden="true"></div>
+        </div>
+        <figcaption class="cap"><b>Kasim Aslam, co-founder</b><span>“I built the best Google Ads agency in the world without being good at Google Ads.”</span></figcaption>
+      </figure>
+      <svg class="seal" viewBox="0 0 160 160" role="img" aria-label="Freedom 40 guaranteed: 40 hours in 30 days">
+        <defs>
+          <path id="rh-circ" d="M80,80 m-61,0 a61,61 0 1,1 122,0 a61,61 0 1,1 -122,0"/>
+          <radialGradient id="rh-sg" cx="35%" cy="30%" r="80%"><stop offset="0" stop-color="#FF7A4D"/><stop offset="1" stop-color="#C73F1B"/></radialGradient>
+          <linearGradient id="rh-sc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D3478"/><stop offset="1" stop-color="#0A1122"/></linearGradient>
+        </defs>
+        <circle cx="80" cy="80" r="78" fill="url(#rh-sg)"/>
+        <circle cx="80" cy="80" r="77" fill="none" stroke="#fff" stroke-opacity=".25"/>
+        <g class="spin"><text font-size="10" font-weight="800" fill="#fff"><textPath href="#rh-circ" textLength="380" lengthAdjust="spacing">FREEDOM 40 · GUARANTEED · FREEDOM 40 · GUARANTEED ·</textPath></text></g>
+        <circle cx="80" cy="80" r="47" fill="url(#rh-sc)"/>
+        <circle cx="80" cy="80" r="46.5" fill="none" stroke="#fff" stroke-opacity=".16"/>
+        <text x="80" y="84" text-anchor="middle" font-size="34" font-weight="800" fill="#fff" letter-spacing="-1">40h</text>
+        <text x="80" y="102" text-anchor="middle" font-size="9" font-weight="700" fill="#E9A23B" letter-spacing="1.4">IN 30 DAYS</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- 2 PROOF -->
+<div class="proof">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b class="num" data-count="100" data-fmt="+">100+</b><span>founders served</span></div>
+      <div class="stat"><b class="num" data-count="93" data-fmt="%">93%</b><span>still with us after 12 months</span></div>
+      <div class="stat"><b class="num" data-count="1000" data-fmt="+">1,000+</b><span>applicants for every placement</span></div>
+      <div class="stat"><b class="num" data-count="24" data-fmt="h">24h</b><span>to your first three matches</span></div>
+    </div>
+    <div class="marks"><span>Trusted by founders from</span><strong>Genius Network</strong><strong>Lifestyle Investor</strong><strong>Front Row Dads</strong><strong>Driven Mastermind</strong></div>
+  </div>
+</div>
+
+<!-- 3 PROBLEM -->
+<section class="s-light problem">
+  <div class="wrap two">
+    <div>
+      <p class="eb">The real problem</p>
+      <h2><span class="a">You don’t have a workload problem.</span> <span class="b">You’re the bottleneck.</span></h2>
+      <p class="lede">Every decision, every approval, every “quick thing” still routes through you. You hired people, and the business still can’t run a day without you in the middle of it.</p>
+      <p class="lede">You can’t out-work that. The constraint isn’t effort — it’s that everything waits on one person.</p>
+      <blockquote class="pull"><q>I just figured out the one thing early: talent is the leverage. Find the right people. Give them ownership. Get out of the way.</q><cite>— Kasim Aslam, who has built more than a dozen companies</cite></blockquote>
+    </div>
+    <figure class="diag" aria-label="Diagram: today every task routes through you; with a Right Hand, tasks route through them and you are free">
+      <div class="legend" aria-hidden="true"><span>Today</span><span>With a Right Hand</span></div>
+      <svg viewBox="0 0 520 300" id="rh-diag" aria-hidden="true">
+        <line x1="260" y1="16" x2="260" y2="290" stroke="#D3D8E2" stroke-dasharray="4 6"/>
+        <g stroke="#E0512B" stroke-width="1.6" stroke-opacity=".55">
+          <path id="rh-a1" d="M38 62 L130 160"/><path id="rh-a2" d="M130 40 L130 160"/><path id="rh-a3" d="M222 62 L130 160"/><path id="rh-a4" d="M226 256 L130 160"/><path id="rh-a5" d="M130 280 L130 160"/><path id="rh-a6" d="M34 256 L130 160"/><path id="rh-a7" d="M22 160 L130 160"/><path id="rh-a8" d="M238 160 L130 160"/>
+        </g>
+        <g fill="#fff" stroke="#C9D0DC" stroke-width="1.5"><circle cx="38" cy="62" r="12"/><circle cx="130" cy="40" r="12"/><circle cx="222" cy="62" r="12"/><circle cx="226" cy="256" r="12"/><circle cx="130" cy="280" r="12"/><circle cx="34" cy="256" r="12"/><circle cx="22" cy="160" r="12"/><circle cx="238" cy="160" r="12"/></g>
+        <g class="dot" fill="#E0512B">
+          <circle r="3.4"><animateMotion dur="1.5s" repeatCount="indefinite"><mpath href="#rh-a1"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.2s" begin=".4s" repeatCount="indefinite"><mpath href="#rh-a2"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.7s" begin=".2s" repeatCount="indefinite"><mpath href="#rh-a3"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.4s" begin=".7s" repeatCount="indefinite"><mpath href="#rh-a4"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.1s" begin=".1s" repeatCount="indefinite"><mpath href="#rh-a5"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.6s" begin=".5s" repeatCount="indefinite"><mpath href="#rh-a6"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.3s" begin=".3s" repeatCount="indefinite"><mpath href="#rh-a7"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.5s" begin=".9s" repeatCount="indefinite"><mpath href="#rh-a8"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.5s" begin=".75s" repeatCount="indefinite"><mpath href="#rh-a1"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.7s" begin="1.05s" repeatCount="indefinite"><mpath href="#rh-a3"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.1s" begin=".65s" repeatCount="indefinite"><mpath href="#rh-a5"/></animateMotion></circle>
+          <circle r="3.4"><animateMotion dur="1.3s" begin=".95s" repeatCount="indefinite"><mpath href="#rh-a7"/></animateMotion></circle>
+        </g>
+        <circle cx="130" cy="160" r="46" fill="#E0512B" fill-opacity=".12"><animate class="dot" attributeName="r" values="36;52;36" dur="1.6s" repeatCount="indefinite"/></circle>
+        <circle cx="130" cy="160" r="34" fill="#E0512B"/>
+        <text x="130" y="164" text-anchor="middle" fill="#fff">YOU</text>
+        <g stroke="#16295F" stroke-width="1.6" stroke-opacity=".4">
+          <path id="rh-b1" d="M292 108 L390 184"/><path id="rh-b2" d="M284 196 L390 184"/><path id="rh-b3" d="M322 272 L390 184"/><path id="rh-b4" d="M458 272 L390 184"/><path id="rh-b5" d="M496 196 L390 184"/><path id="rh-b6" d="M488 108 L390 184"/>
+        </g>
+        <g fill="#fff" stroke="#C9D0DC" stroke-width="1.5"><circle cx="292" cy="108" r="12"/><circle cx="284" cy="196" r="12"/><circle cx="322" cy="272" r="12"/><circle cx="458" cy="272" r="12"/><circle cx="496" cy="196" r="12"/><circle cx="488" cy="108" r="12"/></g>
+        <g class="dot" fill="#16295F">
+          <circle r="3.2"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#rh-b1"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.8s" begin=".6s" repeatCount="indefinite"><mpath href="#rh-b2"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.6s" begin="1.2s" repeatCount="indefinite"><mpath href="#rh-b3"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.5s" begin=".3s" repeatCount="indefinite"><mpath href="#rh-b4"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.9s" begin=".9s" repeatCount="indefinite"><mpath href="#rh-b5"/></animateMotion></circle>
+          <circle r="3.2"><animateMotion dur="2.7s" begin="1.5s" repeatCount="indefinite"><mpath href="#rh-b6"/></animateMotion></circle>
+        </g>
+        <path id="rh-c1" d="M390 150 L390 70" stroke="#2FA37A" stroke-width="2" stroke-dasharray="3 5"/>
+        <circle class="dot" r="3.6" fill="#2FA37A"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#rh-c1"/></animateMotion></circle>
+        <circle cx="390" cy="184" r="34" fill="#16295F"/>
+        <text x="390" y="181" text-anchor="middle" fill="#fff">RIGHT</text><text x="390" y="195" text-anchor="middle" fill="#fff">HAND</text>
+        <circle cx="390" cy="48" r="22" fill="#2FA37A"/>
+        <text x="390" y="52" text-anchor="middle" fill="#fff">YOU</text>
+      </svg>
+      <figcaption>Left: every task waits on you. Right: your Right Hand runs the day, and you get a 10-minute daily check-in instead of a hundred interruptions.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 4 THE MATH -->
+<section class="math" id="rh-math">
+  <div class="wrap">
+    <p class="eb">Do the math</p>
+    <h2><span class="a">This isn’t a cost.</span> <span class="b">It’s buying back your most expensive hours.</span></h2>
+  </div>
+  <div class="wall" id="rh-wall" aria-hidden="true">
+    <div class="wall-in" id="rh-wallin">
+      <div class="row" data-dir="1">
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+      </div>
+      <div class="row" data-dir="-1">
+        <div class="tile"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+      </div>
+      <div class="row" data-dir="1">
+        <div class="tile"><img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-list"/></svg>Follow-ups</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-ops"/></svg>Ops</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-inbox"/></svg>Inbox</span></div>
+        <div class="tile"><img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&amp;fit=crop&amp;w=720&amp;q=70" alt="" loading="lazy" decoding="async" width="360" height="225"><span><svg class="ico"><use href="#rh-i-calendar"/></svg>Calendar</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap calc">
+    <ul class="benefits">
+      <li><span class="ck"><svg class="ico" aria-hidden="true"><use href="#rh-i-check"/></svg></span><span>Your Right Hand owns your inbox, calendar, follow-ups and ops.</span></li>
+      <li><span class="ck"><svg class="ico" aria-hidden="true"><use href="#rh-i-check"/></svg></span><span>Projects keep moving instead of waiting on your reply.</span></li>
+      <li><span class="ck"><svg class="ico" aria-hidden="true"><use href="#rh-i-check"/></svg></span><span>The things that fall through the cracks get caught first.</span></li>
+      <li><span class="ck"><svg class="ico" aria-hidden="true"><use href="#rh-i-check"/></svg></span><span>Your hours go to the work only you can do.</span></li>
+    </ul>
+    <div class="inst-stage">
+      <div class="inst pc" id="rh-inst">
+        <label for="rh-rate">What is one hour of your time worth?</label>
+        <div class="inst-top">
+          <div class="rate num">$<span id="rh-rate-out">250</span><small>/ hour</small></div>
+          <div class="ring" aria-hidden="true">
+            <svg viewBox="0 0 128 128"><defs><linearGradient id="rh-rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B3F"/><stop offset="1" stop-color="#E9A23B"/></linearGradient></defs><circle cx="64" cy="64" r="52" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="10"/><circle class="arc" id="rh-arc" cx="64" cy="64" r="52" fill="none" stroke="url(#rh-rg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="326.73" stroke-dashoffset="245"/></svg>
+            <b class="num" id="rh-mult">3.3×</b>
+          </div>
+        </div>
+        <div class="slider"><input type="range" id="rh-rate" min="50" max="1000" step="25" value="250" aria-describedby="rh-verdict" aria-valuetext="$250 per hour"></div>
+        <div class="scale" aria-hidden="true"><span>$50</span><span>$1,000</span></div>
+        <div class="out">
+          <div><span>Value of 40 hours</span><b class="num" id="rh-val">$10,000</b></div>
+          <div><span>Your monthly price</span><b class="num">$3,000</b></div>
+        </div>
+        <p class="verdict" id="rh-verdict" aria-live="polite">That’s a <b>3.3× return</b> in month one — at the guarantee’s floor.</p>
+        <p class="wait" id="rh-wait">Every month you wait is 40 hours you don’t get back — <b id="rh-wait-v">$10,000</b> at your rate.</p>
+        <p class="fine">Freedom 40 guarantees at least 40 hours back in your first 30 days. $3,000/month is the annual plan ($36,000/yr) divided by 12, plus a one-time $3,000 placement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 HOW IT WORKS -->
+<section class="s-light how" id="rh-how">
+  <div class="wrap">
+    <p class="eb">How it works</p>
+    <h2>From overwhelmed to delegated, in three steps.</h2>
+    <div class="rail" aria-hidden="true"><i id="rh-rail"></i></div>
+    <ol class="steps" id="rh-steps">
+      <li class="step"><span class="n num" aria-hidden="true">1</span><h3>Answer 2 quick questions</h3><p>Tell us where you’re stuck and how you work.</p><span class="chip">Under a minute</span></li>
+      <li class="step"><span class="n num" aria-hidden="true">2</span><h3>Book a matching call</h3><p>A short call to confirm fit, so the matches are built around you.</p><span class="chip">Short call</span></li>
+      <li class="step"><span class="n num" aria-hidden="true">3</span><h3>Get 3 profiles in 24 hours</h3><p>Pre-vetted candidates matched to your needs. Pick the one you’re excited about.</p><span class="chip">No contract until then</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 6 IVAN -->
+<section class="ivan" id="rh-ivan">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap two">
+    <div>
+      <p class="eb">What a Right Hand can become</p>
+      <h2><span class="a">Ivan started as a Right Hand at 18.</span> <span class="b">Five years later, he co-founded Pareto.</span></h2>
+      <p class="lede">He started with no resources. He was hired to take work off a founder’s plate — and grew into the CTO of the #1 Google Ads agency in the world, through an 8-figure exit.</p>
+      <ol class="tl" id="rh-tl">
+        <li><b class="num">2018</b><span>Hired as a Right Hand at Solutions 8, then a 6-person company.</span></li>
+        <li><b class="num">2018–2022</b><span>Rose from Right Hand to CTO. 200+ clients, #1 Google Ads agency.</span></li>
+        <li><b class="num">2022</b><span>8-figure exit when Solutions 8 was acquired.</span></li>
+        <li><b class="num">2023</b><span>Co-founded Pareto Talent with Kasim Aslam.</span></li>
+      </ol>
+      <p class="punch">You’re not hiring an assistant. You’re hiring someone with <span class="ceil">that ceiling</span>.</p>
+    </div>
+    <figure class="duo pc" id="rh-duo">
+      <div class="frame">
+        <img src="https://assets.cdn.filesafe.space/KjTTNn7q7Rl3zed7tzFS/media/68269830dcadfd145ee05544.jpeg" alt="Kasim Aslam and Ivan Bunin, co-founders of Pareto Talent" width="470" height="588" loading="lazy" decoding="async">
+        <div class="grain" aria-hidden="true"></div>
+      </div>
+      <figcaption>Kasim Aslam (left) and Ivan Bunin (right), co-founders of Pareto Talent.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 7 THE OFFER -->
+<section class="s-light offer">
+  <div class="wrap">
+    <p class="eb">The offer</p>
+    <h2><span class="a">Not a placement.</span> <span class="b">A complete delegation system.</span></h2>
+    <div class="offer-grid">
+      <ul class="stack">
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-usercheck"/></svg></span><div><b>A dedicated, full-time Right Hand</b><span>Based in Latin America, chosen from 1,000+ applicants.</span></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-calendar"/></svg></span><div><b>Weekly Delegation Mastermind with Kasim</b><span>Learn what to hand off, and how.</span><p class="testi">“I would not be nearly as efficient with my assistant if it wasn’t for the Delegation Mastermind.” — Kevin, Pareto client</p></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-zap"/></svg></span><div><b>10-day AI bootcamp</b><span>40+ hours of training before day one, 104+ sessions a year after.</span></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-layers"/></svg></span><div><b>Pareto Second Brain OS</b><span>The system your Right Hand runs your business on.</span></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-users"/></svg></span><div><b>A 250+ operator community</b><span>Your Right Hand never works alone.</span></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-buoy"/></svg></span><div><b>A dedicated Client Success Manager</b><span>Your point person on the Pareto side.</span></div></li>
+        <li><span class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-shield"/></svg></span><div><b>Three guarantees</b><span>Every risk sits with us. <a href="#rh-guar">See below.</a></span></div></li>
+      </ul>
+      <aside class="price pc" aria-label="Pricing">
+        <p class="k">Annual plan · best value</p>
+        <p class="big num">$3,000<small> /mo effective</small></p>
+        <p>$36,000 a year. Saves $7,200 versus paying monthly.</p>
+        <div class="plans">
+          <div><span>Quarterly</span><span>$10,000 / quarter</span></div>
+          <div><span>Monthly</span><span>$3,600 / month</span></div>
+          <div><span>One-time placement</span><span>$3,000</span></div>
+        </div>
+        <a class="btn btn-l" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get matched free <span class="bi"><svg class="ico" aria-hidden="true"><use href="#rh-i-arrow"/></svg></span></a>
+        <p class="note">No contract until you find your person.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- 8 GUARANTEES -->
+<section class="guar" id="rh-guar">
+  <div class="wrap">
+    <p class="eb">Our guarantees</p>
+    <h2><span class="a">Every risk is on us.</span> <span class="b">Three reasons you can’t lose.</span></h2>
+    <div class="gcards">
+      <article class="gcard hl"><div class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-clock"/></svg></div><h3>Freedom 40</h3><p class="sub">Your time, guaranteed</p><p>Attend the Mastermind, follow onboarding, and meet with your Right Hand 10 minutes a day. If you don’t get at least 40 hours back within your first 30 days, your next month is on us.</p></article>
+      <article class="gcard"><div class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-usercheck"/></svg></div><h3>Matching</h3><p class="sub">No match, no money</p><p>If we don’t find a match you’re truly excited about, you owe nothing. No contracts until you find your person.</p></article>
+      <article class="gcard"><div class="i"><svg class="ico" aria-hidden="true"><use href="#rh-i-refresh"/></svg></div><h3>Lifetime Replacement</h3><p class="sub">For as long as you’re with us</p><p>If your match is ever not the right fit — for any reason, at any time — we replace your Right Hand at no cost.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- 9 FAQ -->
+<section class="s-light faq">
+  <div class="wrap two">
+    <div>
+      <p class="eb">Questions</p>
+      <h2>Before you click.</h2>
+    </div>
+    <div>
+      <details><summary>Who is this for?<span class="pm"><svg class="ico" aria-hidden="true"><use href="#rh-i-plus"/></svg></span></summary><p>Founders doing $100K+ a month who have become the bottleneck in their own company. It’s not built for solopreneurs or for hiring freelancers.</p></details>
+      <details><summary>Where do Right Hands come from?<span class="pm"><svg class="ico" aria-hidden="true"><use href="#rh-i-plus"/></svg></span></summary><p>Latin America. Each placement is chosen from more than 1,000 applicants and completes 40+ hours of AI training before placement.</p></details>
+      <details><summary>What happens after I click “Get matched”?<span class="pm"><svg class="ico" aria-hidden="true"><use href="#rh-i-plus"/></svg></span></summary><p>You answer 2 quick questions (under a minute), book a short matching call to confirm fit, and receive 3 pre-vetted profiles within 24 hours. No contract until you find your person.</p></details>
+      <details><summary>What if it doesn’t work out?<span class="pm"><svg class="ico" aria-hidden="true"><use href="#rh-i-plus"/></svg></span></summary><p>If you don’t get 40 hours back in your first 30 days, your next month is on us. If the fit is ever wrong, we replace your Right Hand at no cost, any time.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 10 FINAL CTA -->
+<section class="final" id="rh-final">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="fcard pc" id="rh-fcard">
+      <div class="grain" aria-hidden="true"></div>
+      <h2>Your business should run without you. Start today.</h2>
+      <p class="lede">Two quick questions. Three pre-vetted profiles in 24 hours. None of the risk.</p>
+      <a class="btn btn-l" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get matched free <span class="bi"><svg class="ico" aria-hidden="true"><use href="#rh-i-arrow"/></svg></span></a>
+      <p class="mini">Freedom 40 · Matching · Lifetime Replacement guarantees included</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span><b>Concept page</b> built by Hakim Boukeffoussa for the Pareto Talent Bootcamp (Day 5). Not an official Pareto Talent page. All figures and guarantees are quoted from paretotalent.com.</span>
+    <span>Photos: paretotalent.com · Unsplash (Unsplash License) · Icons: Lucide (ISC) · Type: Archivo + Newsreader (Google Fonts)</span>
+  </div>
+</footer>
+
+<div class="mbar" id="rh-mbar"><a class="btn btn-l" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get 40 hours back — get matched free <span class="bi"><svg class="ico" aria-hidden="true"><use href="#rh-i-arrow"/></svg></span></a></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "#webpage",
+      "name": "Right Hand Program — 40 hours back or your next month is free",
+      "description": "Concept landing page for Pareto Talent's Right Hand Program. Built by Hakim Boukeffoussa for the Pareto Talent Bootcamp, Day 5.",
+      "inLanguage": "en",
+      "author": {
+        "@id": "#author"
+      },
+      "about": {
+        "@id": "#service"
+      },
+      "isBasedOn": "https://paretotalent.com",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Who is this for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Founders doing $100K+ a month who have become the bottleneck in their own company. It’s not built for solopreneurs or for hiring freelancers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where do Right Hands come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Latin America. Each placement is chosen from more than 1,000 applicants and completes 40+ hours of AI training before placement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I click “Get matched”?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You answer 2 quick questions (under a minute), book a short matching call to confirm fit, and receive 3 pre-vetted profiles within 24 hours. No contract until you find your person."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if it doesn’t work out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If you don’t get 40 hours back in your first 30 days, your next month is on us. If the fit is ever wrong, we replace your Right Hand at no cost, any time."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "#author",
+      "name": "Hakim Boukeffoussa"
+    },
+    {
+      "@type": "Service",
+      "@id": "#service",
+      "name": "Right Hand Program",
+      "serviceType": "Full-time Right Hand (executive assistant) placement with a delegation system",
+      "description": "A full-time Right Hand, picked from 1,000+ applicants, who runs your day on AI.",
+      "audience": {
+        "@type": "BusinessAudience",
+        "audienceType": "Founders doing $100K+ a month"
+      },
+      "provider": {
+        "@id": "#pareto"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "#pareto",
+      "name": "Pareto Talent",
+      "url": "https://paretotalent.com",
+      "foundingDate": "2023",
+      "founder": [
+        {
+          "@type": "Person",
+          "name": "Kasim Aslam"
+        },
+        {
+          "@type": "Person",
+          "name": "Ivan Bunin"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script>
+(function(){
+  var root=document.getElementById('rh'); if(!root) return;
+  var $=function(id){return document.getElementById(id)};
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia&&matchMedia('(pointer: fine)').matches;
+  var clamp=function(v,a,b){return v<a?a:v>b?b:v};
+
+  /* images that fail to load fall back to the designed navy tile instead of a broken icon */
+  [].forEach.call(root.querySelectorAll('.tile img,.frame img,.faces img'),function(img){
+    var mark=function(){var p=img.closest('.tile')||img.closest('.frame');if(p)p.classList.add('is-broken');img.style.visibility='hidden'};
+    if(img.complete&&img.naturalWidth===0&&img.getAttribute('src'))mark(); else img.addEventListener('error',mark);
+  });
+
+  /* calculator */
+  var r=$('rh-rate'),rOut=$('rh-rate-out'),vOut=$('rh-val'),mOut=$('rh-mult'),ver=$('rh-verdict'),arc=$('rh-arc'),wait=$('rh-wait'),waitV=$('rh-wait-v');
+  var C=326.73,MAXM=1000*40/3000,shown={rate:250,val:10000},target={rate:250,val:10000},from=null,t0=0,raf=0;
+  function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+  function mult(m){return m<10?m.toFixed(1):String(Math.round(m))}
+  function paint(){rOut.textContent=Math.round(shown.rate).toLocaleString('en-US');vOut.textContent=money(shown.val)}
+  function step(now){
+    var k=clamp((now-t0)/450,0,1),e=1-Math.pow(1-k,3);
+    shown.rate=from.rate+(target.rate-from.rate)*e;shown.val=from.val+(target.val-from.val)*e;
+    paint(); raf=k<1?requestAnimationFrame(step):0;
+  }
+  function calc(){
+    var rate=+r.value,val=rate*40,m=val/3000;
+    target.rate=rate;target.val=val;
+    r.style.setProperty('--p',((rate-r.min)/(r.max-r.min)*100)+'%');
+    r.setAttribute('aria-valuetext','$'+rate.toLocaleString('en-US')+' per hour');
+    mOut.textContent=m<1?'—':mult(m)+'×';
+    if(wait){wait.hidden=m<1;waitV.textContent=money(val)}
+    arc.style.strokeDashoffset=(C*(1-clamp(m/MAXM,0,1))).toFixed(2);
+    ver.innerHTML=m<1?'Below about $75 an hour, the math doesn’t work yet. <b>This is built for founders whose hour is worth more.</b>':'That’s a <b>'+mult(m)+'× return</b> in month one — at the guarantee’s floor.';
+    if(reduce){shown.rate=target.rate;shown.val=target.val;paint()}else{from={rate:shown.rate,val:shown.val};t0=performance.now();if(!raf)raf=requestAnimationFrame(step)}
+  }
+  if(r){r.addEventListener('input',calc);calc()}
+
+  /* sticky nav state, mobile CTA bar, progress bar */
+  var nav=$('rh-nav'),prog=$('rh-prog'),mbar=$('rh-mbar'),hero=$('rh-top'),fin=$('rh-final');
+  if('IntersectionObserver' in window&&mbar){
+    var hv=true,fv=false,set=function(){mbar.classList.toggle('on',!hv&&!fv)};
+    new IntersectionObserver(function(e){hv=e[0].isIntersecting;set()}).observe(hero);
+    new IntersectionObserver(function(e){fv=e[0].isIntersecting;set()}).observe(fin);
+  }
+
+  /* count-up stats */
+  if(!reduce&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return; io.unobserve(e.target);
+      var el=e.target,end=+el.getAttribute('data-count'),suf=el.getAttribute('data-fmt'),t0=null,final=el.getAttribute('data-final');
+      function tick(t){if(!t0)t0=t;var k=clamp((t-t0)/1400,0,1),ease=1-Math.pow(2,-10*k);
+        el.textContent=(k>=1)?final:Math.round(end*ease).toLocaleString('en-US')+suf;
+        if(k<1)requestAnimationFrame(tick)}
+      requestAnimationFrame(tick);
+    })},{threshold:.6});
+    [].forEach.call(root.querySelectorAll('[data-count]'),function(el){
+      var rc=el.getBoundingClientRect(); if(rc.top>innerHeight){el.setAttribute('data-final',el.textContent);el.textContent='0'+el.getAttribute('data-fmt');io.observe(el)}
+    });
+  }
+
+  /* diagram: freeze the flow for reduced motion */
+  var dg=$('rh-diag'); if(reduce&&dg&&dg.pauseAnimations){dg.pauseAnimations()}
+
+  /* scroll-linked scenes */
+  var hcopy=$('rh-hcopy'),hvis=$('rh-hvis'),wall=$('rh-wall'),wallin=$('rh-wallin'),rows=[].slice.call(root.querySelectorAll('.row')),
+      inst=$('rh-inst'),rail=$('rh-rail'),steps=[].slice.call(root.querySelectorAll('.step')),how=$('rh-how'),
+      tl=$('rh-tl'),tlfill=tl,tlis=tl?[].slice.call(tl.querySelectorAll('li')):[],duo=$('rh-duo'),duoImg=duo?duo.querySelector('img'):null,fcard=$('rh-fcard');
+  function scenes(){
+    var vh=innerHeight,y=scrollY||pageYOffset,doc=document.documentElement;
+    if(prog)prog.style.transform='scaleX('+clamp(y/Math.max(1,doc.scrollHeight-vh),0,1)+')';
+    if(nav)nav.classList.toggle('is-stuck',nav.getBoundingClientRect().top<=0&&y>40);
+    if(reduce){return}
+    var b,t;
+    b=hero.getBoundingClientRect(); t=clamp(-b.top/b.height,0,1);
+    if(b.bottom>0){hcopy.style.transform='translate3d(0,'+(-t*60)+'px,0)';hcopy.style.opacity=1-t*.55;hvis.style.transform='translate3d(0,'+(t*50)+'px,0)'}
+    b=wall.getBoundingClientRect();
+    if(b.bottom>0&&b.top<vh){t=clamp((vh-b.top)/(vh+b.height),0,1);var f=clamp(t/.45,0,1);
+      wallin.style.setProperty('--wrx',(18*(1-f)).toFixed(2)+'deg');wallin.style.setProperty('--wrz',(-5*(1-f)).toFixed(2)+'deg');wallin.style.setProperty('--wty',(60*(1-f)).toFixed(1)+'px');
+      rows.forEach(function(row){var d=+row.getAttribute('data-dir');row.style.setProperty('--tx',(d>0?(-760+t*460):(-300-t*460)).toFixed(1)+'px')})}
+    b=inst.getBoundingClientRect();
+    if(b.top<vh&&b.bottom>0){t=clamp((vh-b.top)/(vh*.55),0,1);inst.style.transform='translate3d(0,'+((1-t)*90).toFixed(1)+'px,0) rotateX('+((1-t)*14).toFixed(2)+'deg) scale('+(.93+.07*t).toFixed(3)+')'}
+    b=how.getBoundingClientRect();
+    if(b.top<vh&&b.bottom>0){t=clamp((vh*.85-b.top)/(b.height*.75),0,1);rail.style.setProperty('--t',t.toFixed(3));steps.forEach(function(s,i){s.classList.toggle('on',t>=[.18,.5,.82][i])})}
+    b=tl.getBoundingClientRect();
+    if(b.top<vh&&b.bottom>0){t=clamp((vh*.72-b.top)/b.height,0,1);tlfill.style.setProperty('--t',t.toFixed(3));tlis.forEach(function(li,i){li.classList.toggle('on',t>=(i+.15)/tlis.length)})}
+    b=duo.getBoundingClientRect();
+    if(duoImg&&b.top<vh&&b.bottom>0){t=clamp((vh-b.top)/(vh+b.height),0,1);duoImg.style.setProperty('--py',((.5-t)*8).toFixed(2)+'%')}
+    b=fcard.getBoundingClientRect();
+    if(b.top<vh&&b.bottom>0){t=clamp((vh-b.top)/(vh*.7),0,1);fcard.style.setProperty('--fsc',(.9+.1*t).toFixed(3));fcard.style.setProperty('--fr',(64-28*t).toFixed(1)+'px')}
+  }
+  if(reduce){rail&&rail.style.setProperty('--t','1');tlfill&&tlfill.style.setProperty('--t','1');steps.forEach(function(s){s.classList.add('on')});tlis.forEach(function(li){li.classList.add('on')})}
+  var ticking=false;function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;scenes()})}}
+  addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);scenes();
+
+  /* pointer: hero glow, card tilt, sheen on physical cards */
+  if(fine&&!reduce){
+    var glow=$('rh-glow'),hcard=$('rh-hcard'),pend=null;
+    var pt=false;addEventListener('pointermove',function(e){pend=e;if(!pt){pt=true;requestAnimationFrame(function(){pt=false;var ev=pend;
+      var hb=hero.getBoundingClientRect();
+      if(hb.bottom>0){glow.style.setProperty('--gx',(ev.clientX-hb.left)+'px');glow.style.setProperty('--gy',(ev.clientY-hb.top)+'px');
+        var xv=(ev.clientX/innerWidth-.5)*2,yv=(ev.clientY/innerHeight-.5)*2;hcard.style.setProperty('--rx',(-yv*6).toFixed(2)+'deg');hcard.style.setProperty('--ry',(xv*8).toFixed(2)+'deg')}
+      scenes()})}},{passive:true});
+    [].forEach.call(root.querySelectorAll('.pc'),function(c){c.addEventListener('pointermove',function(e){var b=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-b.left)+'px');c.style.setProperty('--my',(e.clientY-b.top)+'px')},{passive:true})});
+  }
+})();
+</script>
+</div>

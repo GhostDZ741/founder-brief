@@ -1,0 +1,123 @@
+<!-- Popup for the Right Hand page. Self-contained: all CSS is scoped under #rh-exit,
+     so it can be pasted at the end of the page or into its own GoHighLevel Code element.
+     Opens when the visitor reaches the end of the page, or when they look like they're leaving:
+     mouse heading for the tab bar on desktop, a fast upward flick after reading most of the page on phones.
+     Never hijacks the back button. Once per visit, never before 8 seconds, never after a CTA click,
+     never for visitors who set their hour below $75. Phones get a bottom sheet instead of a centred box. -->
+<style>
+#rh-exit{--ink:#0B1020;--hi:#F4F6FA;--sil:#C3C9D5;--sil2:#A7B0C4;--ember:#E0512B;--ember-l:#FF6B3F;--fd:'Archivo',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;--ease:cubic-bezier(.16,1,.3,1)}
+#rh-exit .dlg{width:min(460px,calc(100vw - 32px));max-width:none;max-height:calc(100vh - 32px);margin:auto;padding:0;border:0;border-radius:28px;color:var(--sil);font-family:var(--fd);font-size:16px;line-height:1.55;text-align:left;overflow:auto;background:linear-gradient(145deg,#16295F 0%,#0A1122 100%);box-shadow:0 40px 100px -20px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06),inset 0 1px 2px rgba(255,255,255,.2),inset 0 -2px 4px rgba(0,0,0,.7)}
+#rh-exit .dlg[open]{animation:rh-exit-in .5s var(--ease) both}
+#rh-exit .dlg::backdrop{background:rgba(3,6,14,.74);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#rh-exit .in{position:relative;padding:34px 30px 24px}
+#rh-exit .in *{box-sizing:border-box;margin:0;padding:0}
+#rh-exit .x{position:absolute;top:12px;right:12px;width:44px;height:44px;border:0;border-radius:14px;background:transparent;color:var(--sil2);cursor:pointer;display:grid;place-items:center;transition:background .2s,color .2s}
+#rh-exit .x:hover{background:rgba(255,255,255,.08);color:#fff}
+#rh-exit .x svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+#rh-exit .k{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:var(--ember-l);padding-right:44px}
+#rh-exit .k::before{content:"";width:26px;height:4px;border-radius:2px;flex:none;background:linear-gradient(90deg,#DDE2EB 0 72%,transparent 72% 80%,var(--ember) 80%)}
+#rh-exit h2{margin-top:16px;font-family:var(--fd);font-weight:800;font-size:clamp(24px,5vw,28px);line-height:1.05;letter-spacing:-.03em;color:var(--hi);text-wrap:balance}
+#rh-exit h2 span{display:block;background:linear-gradient(180deg,#FFFFFF 0%,#8E97AD 100%);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.06em}
+#rh-exit .you{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
+#rh-exit .you[hidden]{display:none}
+#rh-exit .you div{border-radius:16px;padding:12px 14px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:inset 0 1px 1px rgba(255,255,255,.06),inset 0 -1px 1px rgba(0,0,0,.5)}
+#rh-exit .you span{display:block;font-size:12.5px;font-weight:600;color:var(--sil2)}
+#rh-exit .you b{display:block;margin-top:4px;font-size:22px;font-weight:800;font-stretch:125%;letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums}
+#rh-exit .wait{margin-top:12px;padding:11px 14px 11px 16px;border-radius:14px;font-size:14.5px;line-height:1.45;color:#E3E7EF;background:rgba(224,81,43,.1);box-shadow:inset 3px 0 0 var(--ember)}
+#rh-exit .wait b{color:#fff;font-variant-numeric:tabular-nums}
+#rh-exit .wait[hidden]{display:none}
+#rh-exit p.lede{margin-top:18px;color:#D0D6E2}
+#rh-exit .btn{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;min-height:56px;margin-top:22px;padding:0 10px 0 22px;border-radius:18px;font-weight:700;font-size:17px;letter-spacing:-.01em;text-decoration:none;color:var(--ink);background:linear-gradient(180deg,#FFFFFF 0%,#E7EAF1 100%);box-shadow:0 2px 4px rgba(0,0,0,.18),0 14px 28px -6px rgba(0,0,0,.55),inset 0 1px 1px #fff,inset 0 -3px 6px rgba(11,16,32,.08);transition:transform .4s cubic-bezier(.25,1,.5,1)}
+#rh-exit .btn:hover{transform:translateY(-2px)}
+#rh-exit .btn i{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--ember);color:#fff;box-shadow:inset 0 1px 1px rgba(255,255,255,.35),inset 0 -2px 3px rgba(0,0,0,.25)}
+#rh-exit .btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#rh-exit .note{margin-top:12px;text-align:center;font-size:13.5px;color:var(--sil2)}
+#rh-exit .fine{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08);text-align:center;font-size:11.5px;color:#8F98AC}
+#rh-exit h2:focus{outline:none}
+#rh-exit .x:focus-visible,#rh-exit .btn:focus-visible{outline:3px solid var(--ember-l);outline-offset:3px}
+@keyframes rh-exit-in{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes rh-exit-up{from{transform:translateY(100%)}to{transform:none}}
+@media (max-width:640px){
+  #rh-exit .dlg{width:100%;max-width:100%;max-height:calc(100dvh - 24px);margin:auto auto 0;border-radius:28px 28px 0 0;padding-bottom:env(safe-area-inset-bottom,0px)}
+  #rh-exit .dlg[open]{animation:rh-exit-up .45s var(--ease) both}
+  #rh-exit .in{padding:28px 20px 18px}
+  #rh-exit h2{font-size:24px}
+  #rh-exit .you b{font-size:20px}
+  #rh-exit .btn:hover{transform:none}
+}
+@media (prefers-reduced-motion:reduce){#rh-exit .dlg[open]{animation:none}#rh-exit .btn,#rh-exit .x{transition:none}#rh-exit .btn:hover{transform:none}}
+</style>
+
+<div id="rh-exit">
+  <dialog class="dlg" id="rh-exit-dlg" aria-labelledby="rh-exit-t">
+    <div class="in">
+      <button type="button" class="x" id="rh-exit-x" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+      <p class="k">Freedom 40 · Your time, guaranteed</p>
+      <h2 id="rh-exit-t" tabindex="-1" autofocus>Get 40 hours back in your first 30 days — <span>or your next month is free.</span></h2>
+      <div class="you" id="rh-exit-you" hidden>
+        <div><span>Value of 40 hours</span><b id="rh-exit-val">$10,000</b></div>
+        <div><span>Your monthly price</span><b>$3,000</b></div>
+      </div>
+      <p class="wait" id="rh-exit-wait" hidden>Every month you wait is 40 hours you don’t get back — <b id="rh-exit-wv">$10,000</b> at your rate.</p>
+      <p class="lede">Two quick questions. Three pre-vetted profiles in 24 hours. None of the risk.</p>
+      <a class="btn" id="rh-exit-cta" href="https://paretotalent.com/matching" target="_blank" rel="noopener">Get matched free <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></i></a>
+      <p class="note">No contract until you find your person.</p>
+      <p class="fine">Concept landing page · not an official Pareto page</p>
+    </div>
+  </dialog>
+</div>
+
+<script>
+(function(){
+  var dlg=document.getElementById('rh-exit-dlg');
+  if(!dlg||typeof dlg.showModal!=='function')return;                    /* old browser: no popup */
+  try{if(sessionStorage.getItem('rh-exit'))return}catch(e){}            /* once per visit */
+  var MIN_MS=8000,END_DELAY=1200,t0=Date.now(),shown=false,clicked=false,touched=false,timer=0,ignoreUntil=0,
+      fine=window.matchMedia&&matchMedia('(pointer: fine)').matches,rate=document.getElementById('rh-rate'),root=document.documentElement;
+  if(rate)rate.addEventListener('input',function(){touched=true});
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a');
+    if(!a||dlg.contains(a))return;
+    if(/paretotalent\.com\/matching/.test(a.href))clicked=true;            /* they already acted: don't nag */
+    if((a.getAttribute('href')||'').charAt(0)==='#')ignoreUntil=Date.now()+2000; /* in-page jumps are not "leaving" */
+  },true);
+  function atEnd(slack){return scrollY+innerHeight>=root.scrollHeight-slack}
+  function fromEnd(){                                                    /* end-of-page trigger, after a short pause */
+    if(!atEnd(innerHeight*1.5)){endArmed=true;return}                    /* they scrolled back up to read: stand down */
+    var wait=MIN_MS-(Date.now()-t0);
+    if(wait>0){timer=setTimeout(fromEnd,wait);return}                    /* skimmed to the bottom fast: wait for 8 seconds */
+    open();
+  }
+  function open(){
+    if(shown||clicked||Date.now()-t0<MIN_MS)return;                      /* a "leaving" signal in the first 8 seconds is ignored */
+    var r=rate?+rate.value:250;
+    if(touched&&r*40<3000)return;                                        /* the page told them it isn't for them */
+    shown=true;try{sessionStorage.setItem('rh-exit','1')}catch(e){}
+    if(touched){var v='$'+(r*40).toLocaleString('en-US');document.getElementById('rh-exit-val').textContent=v;document.getElementById('rh-exit-wv').textContent=v;document.getElementById('rh-exit-you').hidden=false;document.getElementById('rh-exit-wait').hidden=false}
+    root.style.overflow='hidden';dlg.showModal();
+  }
+  dlg.addEventListener('close',function(){root.style.overflow=''});
+
+  /* trigger 1: they reached the end of the page */
+  var endArmed=true,maxDepth=0,upY=null,upT=0,lastY=scrollY;
+  function onScroll(){
+    var y=scrollY,now=Date.now(),H=root.scrollHeight-innerHeight;
+    if(H>0)maxDepth=Math.max(maxDepth,y/H);
+    if(endArmed&&atEnd(120)){endArmed=false;clearTimeout(timer);timer=setTimeout(fromEnd,END_DELAY)}
+    /* trigger 2 on phones: a fast upward flick after reading most of the page (heading for the address bar) */
+    if(!fine&&!shown){
+      if(y<lastY){if(upY===null){upY=lastY;upT=now}
+        if(upY-y>500&&now-upT<450&&maxDepth>=.6&&now>ignoreUntil)open();
+      }else{upY=null}
+    }
+    lastY=y;
+  }
+  addEventListener('scroll',onScroll,{passive:true});
+  /* trigger 2 on desktop: the pointer leaves through the top edge (tabs, back button, address bar) */
+  if(fine)document.addEventListener('mouseout',function(e){if(!e.relatedTarget&&e.clientY<=0)open()});
+
+  document.getElementById('rh-exit-x').addEventListener('click',function(){dlg.close()});
+  document.getElementById('rh-exit-cta').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()}); /* tap on the dimmed backdrop */
+})();
+</script>
